@@ -1,0 +1,39 @@
+<% @fixtures.each do |fixture| %>
+
+    <div class="column is-one-third">
+        <div class="card">
+
+            <div class="card-image">
+                <%= link_to fixture_path(fixture) do %>
+                    <figure class="image is-4by3">
+                        <%= image_tag fixture_cover(fixture) %>
+                    </figure>
+                <% end %>
+            </div>
+
+            <div class="card-content p-t-5 p-b-5">
+                <p class="subtitle is-6 m-b-5"><%= link_to fixture.title.truncate(20), fixture_path(fixture) %></p>
+                <span class="star-review"><i class="fa fa-star"></i>
+                    <%= fixture.average_rating %>
+                    <span class="has-text-primary">(<%= fixture.reviews.count %>)</span>
+                </span>                                        
+            </div>
+
+            <footer class="card-footer">
+                <span class="card-footer-item">
+                    <%= link_to users_path(fixture.user) do %>
+                        <figure class="image is-32x32">
+                            <%= image_tag avatar_url(fixture.user), class: "is-rounded" %>
+                        </figure>
+                    <% end %>
+                </span>
+                <a class="has-text-danger is-block card-footer-item has-text-right">
+                     <span class="small-title">Age Group:</span>  <br>
+                    <strong> Under : <%= fixture.age %>'s</strong>
+                </a>
+            </footer>  
+            
+        </div>
+    </div>
+
+<% end %>

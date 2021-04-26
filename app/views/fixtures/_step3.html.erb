@@ -1,0 +1,6 @@
+<div class="step-content <%= 'is-active' if @step == 3 %>">
+    <div class="field">
+        <label for="" class="label">Description</label>
+        <%= f.rich_text_area :description, placeholder: "Give a description of your club or event " ,rows: 50, cols: 50 %>
+    </div>
+</div>

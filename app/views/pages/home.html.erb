@@ -1,0 +1,374 @@
+<% content_for :head do %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
+
+<section class="hero is-medium has-bg-img">
+    
+	<div class="hero-body">
+        <div class="columns has-text-centered">
+		    
+		        <div class="container">
+		        	<img src="/assets/home/logo.png">
+                       <h1 class="title has-text-white">
+                        <span class="bold"> FIND THE  </span> RIGHT FIXTURE<br>
+                       </h1>
+                        <h2 class="subtitle has-text-white">FOR YOUR TEAM</h2>
+			      			 <div class="level-item has-text-centered">
+    					<div>
+      							<%= form_tag search_path, method: :get, class: "field has-addons" do %>
+                        <div class="control has-icons-left">
+                        	<%= text_field_tag 'q', '', class: "input is-rounded is-large", placeholder: "Try 'Youth Teams" %>
+                            <span class="icon is-large is-left">
+                                <i class="fa fa-search"></i>
+                            </span>
+                            
+                        </div>
+                            <div class="control">
+                            <button class="button is-rounded is-primary is-large" type="submit">Search</button>
+                            </div>
+                        <% end %>
+    				</div>
+  				</div>
+            </div>
+		</div>
+    </div>
+    
+</section>
+	<!-- .hero -->
+		<section class="hero">
+			<div class="hero-body">
+				<div class="container">
+					<figure class="image center">
+						<img src="assets/ruckit2.png" style="max-width: 1500px;">
+					</figure>
+				</div>
+			</div>
+		</section>
+		<!-- /.hero -->
+
+		<!-- .section -->
+		<section class="section has-background-light">
+			<div class="container">
+				<div class="columns">
+					<div class="column">
+						<article class="media notification is-info">
+							<figure class="media-left">
+								<span class="icon is-medium">
+									<i class="fab fa-2x fa-css3-alt"></i>
+								</span>
+							</figure>
+							<div class="media-content">
+								<div class="content">
+									<h1 class="title is-size-4">Bulma?</h1>
+									<p class="is-size-5">
+										Bulma is a modern CSS framework from @jgthms, based on Flexbox.
+										Using Bulma, we can describe our website's design using just classes. <span class="emoticon">ᕕ( ᐛ )ᕗ</span>
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="column">
+						<article class="media notification is-primary">
+							<figure class="media-left">
+								<span class="icon is-medium">
+									<i class="fas fa-2x fa-align-justify"></i>
+								</span>
+							</figure>
+							<div class="media-content">
+								<div class="content">
+									<h1 class="title is-size-4">…Flexbox?</h1>
+									<p class="is-size-5">
+										Flexbox is a CSS spec that makes sectioning and aligning more natural.
+										We don't need to know Flexbox but it's how Bulma works behind-the-scenes. <span class="emoticon">⦤(^ー^)⦥</span>
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="column">
+						<article class="media notification is-warning">
+							<figure class="media-left">
+								<span class="icon is-medium">
+									<i class="fas fa-2x fa-shield-alt"></i>
+								</span>
+							</figure>
+							<div class="media-content">
+								<div class="content">
+									<h1 class="title is-size-4">…Classes?</h1>
+									<p class="is-size-5">
+										Instead of writing our CSS per-element, we can use predefined classes.
+										With enough classes, we can describe our website design using semantics. <span class="emoticon">٩(^ᴗ^)۶</span>
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /.section -->
+
+		<!-- .section -->
+		<section class="section">
+			<div class="container">
+				<div class="columns is-multiline">
+					<div class="column is-one-third">
+						<article class="media notification has-background-white">
+							<figure class="media-left">
+								<span class="icon">
+									<i class="fas fa-lg fa-columns has-text-warning"></i>
+								</span>
+							</figure>
+							<div class="media-content">
+								<div class="content">
+									<h1 class="title is-size-4">Columns</h1>
+									<p class="subtitle is-size-5">
+										The power of <strong>Flexbox</strong> in a simple interface
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="column is-one-third">
+						<article class="media notification has-background-white">
+							<figure class="media-left">
+								<span class="icon">
+									<i class="fab fa-lg fa-wpforms has-text-info"></i>
+								</span>
+							</figure>
+							<div class="media-content">
+								<div class="content">
+									<h1 class="title is-size-4">Form</h1>
+									<p class="subtitle is-size-5">
+										The indispensable <strong>form controls</strong>, designed for maximum clarity
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="column is-one-third">
+						<article class="media notification has-background-white">
+							<figure class="media-left">
+								<span class="icon">
+									<i class="fas fa-lg fa-cubes has-text-danger"></i>
+								</span>
+							</figure>
+							<div class="media-content">
+								<div class="content">
+									<h1 class="title is-size-4">Components</h1>
+									<p class="subtitle is-size-5">
+										Advanced multi-part components with lots of possibilities
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="column is-one-third">
+						<article class="media notification has-background-white">
+							<figure class="media-left">
+								<span class="icon">
+									<i class="fas fa-lg fa-cogs has-text-grey"></i>
+								</span>
+							</figure>
+							<div class="media-content">
+								<div class="content">
+									<h1 class="title is-size-4">Modifiers</h1>
+									<p class="subtitle is-size-5">
+										An <strong>easy-to-read</strong> naming system designed for humans
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="column is-one-third">
+						<article class="media notification has-background-white">
+							<figure class="media-left">
+								<span class="icon">
+									<i class="fas fa-lg fa-warehouse has-text-primary"></i>
+								</span>
+							</figure>
+							<div class="media-content">
+								<div class="content">
+									<h1 class="title is-size-4">Layout</h1>
+									<p class="subtitle is-size-5">
+										Design the <strong>structure</strong> of your webpage with these CSS classes
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="column is-one-third">
+						<article class="media notification has-background-white">
+							<figure class="media-left">
+								<span class="icon">
+									<i class="fas fa-lg fa-cube has-text-danger"></i>
+								</span>
+							</figure>
+							<div class="media-content">
+								<div class="content">
+									<h1 class="title is-size-4">Elements</h1>
+									<p class="subtitle is-size-5">
+										Essential interface elements that only require a <strong>single CSS class</strong>
+									</p>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</section>
+<section class="section has-background-light""m-t-100">
+    <div class="container">
+        <h1 class="title is-4 p-l-10">Teams Looking for matches</h1>
+        <div id="carousel-category" class="hero-carousel">
+            
+            <div class="carousel-item">
+                <div class="p-10">
+                    <%= link_to search_path(category: 1) do %>
+                        <div class="card-image">
+                            <%= image_tag "home/category_1.jpg", class: "is-background", width: "100%", height: "100%" %>
+                            <div class="card-content is-overlay is-clipped">
+                                <span class="subtitle f-15 has-text-white">Mini Teams</span><br>
+                                <span class="title is-4 has-text-white">U7 - U12's</span>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="p-10">
+                    <%= link_to search_path(category: 2) do %>
+                        <div class="card-image">
+                            <%= image_tag "home/category_2.jpg", class: "is-background", width: "100%", height: "100%" %>
+                            <div class="card-content is-overlay is-clipped">
+                                <span class="subtitle f-15 has-text-white">Youth Teams</span><br>
+                                <span class="title is-4 has-text-white">U13 - U19</span>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="p-10">
+                    <%= link_to search_path(category: 3) do %>
+                        <div class="card-image">
+                            <%= image_tag "home/category_3.jpg", class: "is-background", width: "100%", height: "100%" %>
+                            <div class="card-content is-overlay is-clipped">
+                                <span class="subtitle f-15 has-text-white">Senior Teams</span><br>
+                                <span class="title is-4 has-text-white">1st , 2nd & 3rd's</span>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="p-10">
+                    <%= link_to search_path(category: 4) do %>
+                        <div class="card-image">
+                            <%= image_tag "home/category_4.jpg", class: "is-background", width: "100%", height: "100%" %>
+                            <div class="card-content is-overlay is-clipped">
+                                <span class="subtitle f-15 has-text-white">Junior Teams</span><br>
+                                <span class="title is-4 has-text-white">1st & 2nd's</span>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="p-10">
+                    <%= link_to search_path(category: 5) do %>
+                        <div class="card-image">
+                            <%= image_tag "home/category_5.jpg", class: "is-background", width: "100%", height: "100%" %>
+                            <div class="card-content is-overlay is-clipped">
+                                <span class="subtitle f-15 has-text-white">Female Teams</span><br>
+                                <span class="title is-4 has-text-white">Youth's & Senior</span>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="p-10">
+                    <%= link_to search_path(category: 6) do %>
+                   
+                        <div class="card-image">
+                            <%= image_tag "home/category_6.jpg", class: "is-background" , width: "100%", height: "100%" %>
+                            <div class="card-content is-overlay is-clipped">
+                                <span class="subtitle f-15 has-text-white">Touring Teams</span><br>
+                                <span class="title is-4 has-text-white">Junior & Senior</span>
+                            </div>
+                        </div>
+                        
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="p-10">
+                    <%= link_to search_path(category: 7) do %>
+                        <div class="card-image">
+                            <%= image_tag "home/category_7.jpg", class: "is-background", width: "100%", height: "100%" %>
+                            <div class="card-content is-overlay is-clipped">
+                                <span class="subtitle f-15 has-text-white">Legends</span><br>
+                                <span class="title is-4 has-text-white">Passed their Prime</span>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+    	<!-- .hero -->
+		<section class="hero">
+			<div class="hero-body">
+				<div class="container">
+					<figure class="image center">
+						<img src="assets/ruckit2.png" style="max-width: 1500px;">
+					</figure>
+				</div>
+			</div>
+		</section>
+		<!-- /.hero -->
+ <footer class="footer background-primary">
+  <div class="container">
+    <div class="level">
+          <div class="level-left">
+            <div class="level-item"><a class="title is-4" href="#"><img src="/assets/home/logo.png" alt="Pied Piper" width="100"></a></div>
+          </div>
+          <div class="level-right"><%= link_to 'Post Fixture', new_fixture_path, class: "navbar-item" %><%= link_to 'Browse Fixtures', search_path, class: "navbar-item" %>
+           <a class="level-item" "buttons" href="#"><%= link_to  "Sign Up", new_user_registration_path, class: "button is-primary" %></a>  
+           <a class="level-item" "buttons"  href="#"><%= link_to  "Login", new_user_session_path, class: "button is-light" %></a></div>
+     
+  </div>
+    <hr>
+    
+    <div class="columns">
+      <div class="column">
+        <div class="buttons"><a class="button" href="#"><img src="assets/twitter icon.png" alt="" width="25"></a><a class="button" href="#"><img src="assets/facebook.png" alt="" width="25"></a><a class="button" href="#"><img src="assets/instagram.png" alt="" width="25"></a></div>
+      </div>
+      <div class="column has-text-centered has-text-right-tablet">
+        <p class="subtitle is-6">© 2021 Ruckit. All right reserved.</p>
+      </div>
+    </div>
+ </div>
+</footer>
+
+
+<script>
+    BulmaCarousel.attach('#carousel-category', {
+        slidesToScroll: 1,
+        slidesToShow: 4,
+        infinite: true,
+        pagination: false
+    });
+</script>
+
+

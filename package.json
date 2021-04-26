@@ -1,0 +1,25 @@
+{
+  "name": "ruckit",
+  "private": true,
+  "dependencies": {
+    "@fullcalendar/core": "4.2.0",
+    "@fullcalendar/daygrid": "4.2.0",
+    "@fullcalendar/list": "4.2.0",
+    "@rails/actioncable": "^6.0.0-alpha",
+    "@rails/actiontext": "^6.0.0-beta3",
+    "@rails/activestorage": "^6.0.0-alpha",
+    "@rails/ujs": "^6.0.0-alpha",
+    "@rails/webpacker": "^4.0.7",
+    "bulma-extensions": "^6.2.7",
+    "dropzone": "^5.9.2",
+    "jquery": "^3.4.1",
+    "noty": "^3.2.0-beta-deprecated",
+    "raty-js": "^3.0.0",
+    "trix": "^1.0.0",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.7.1"
+  }
+}

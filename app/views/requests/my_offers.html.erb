@@ -1,0 +1,50 @@
+<section class="section">
+    <div class="container">
+        <p class="title">Manage Replies</p>
+        <p class="subtitle">you made to Challenges</p>
+        <table class="table is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Challenger</th>
+                    <th>Team</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Age</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if @offers.blank? %>
+                    <tr>
+                        <td colspan="6" class="has-text-centered"><h1>NOTHING TO SHOW HERE</h1></td>
+                    </tr>
+                <% end %>
+                <% @offers.each do |o| %>
+                    <tr>
+                        <td><%= o.created_at.strftime('%d, %b %Y') %></td>
+                        <td>
+                            <figure class="image is-48x48">
+                                <%= image_tag avatar_url(o.user), class: "is-rounded" %> 
+                            </figure>
+                        </td>
+                        
+                        <td>
+                            <%= link_to o.request.title, request_path(o.request) %>
+                        </td>
+                        <td><%= o.request.created_at.strftime('%d, %b %Y') %></td>
+                        <td><%= o.location %></td>
+                        <td><%= o.age %></td>
+                       <td>
+                           <span class="tag <%= 'is-warning' if o.pending? %>
+                                            <%= 'is-success' if o.accepted? %>
+                                            <%= 'is-danger' if o.rejected? %> ">
+                                            <%= o.status.capitalize %>
+                           </span>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</section>

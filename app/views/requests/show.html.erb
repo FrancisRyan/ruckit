@@ -1,0 +1,236 @@
+<section class="section">
+    <div class="container">
+        <div class="columns">
+
+            <!-- LEFT SIDE -->
+            <div class="column is-two-thirds">
+                <div class="columns is-multiline">
+
+                    <!-- Title -->
+                    <div class="column is-full">
+                        <p class="title is-4"><%= @request.title %></p>
+                        <article class="media">
+                            <div class="media-content">
+                                <p>
+                                    <%= @request.category.name %>
+                                    <span class="is-pulled-right">Posted on: <%= @request.created_at.strftime('%d, %b %Y') %></span>
+                                </p>
+                                Fixtures Location: <%= @request.location %> | Offers: <%= @request.offers.count %> | Age: Under<%= @request.age %>'s
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="column is-full">
+                        <div class="card">
+                            <div class="card-content">
+                                <strong>Description</strong>
+                                <hr>
+                                <%= @request.description %>
+                                <% if @request.attachment_file.attached? %>
+                                    <p>
+                                        <%= link_to url_for(@request.attachment_file), 
+                                                class: "tag small is-warning m-t-20",
+                                                download: "Attachment_#{@request.attachment_file.id}" do %>
+
+                                            <i class="fas fa-paperclip fa-lg p-r-5"></i><%= @request.attachment_file.filename %>
+                                        <% end %>
+                                    </p>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About Challenger -->
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-content">
+                                <strong>About the Challenger</strong> 
+                                <hr/>
+
+                                <div class="content">
+                                    <div class="columns">
+
+                                        <!-- Challenger Avatar -->
+                                        <div class="column">
+                                            <div class="card-content is-horizontal-center is-flex">
+                                                <figure class="image is-96x96">
+                                                    <%= image_tag avatar_url(@request.user), class: "is-rounded" %>
+                                                </figure>
+                                            </div>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                              
+                                <div class="content has-text-centered">
+                                    <p class="title is-5"><%= @request.user.full_name %></p>
+                                        <% if current_user.id != @request.user.full_name%>
+                                        <a class="button is-black is-outlined is-fullwidth toggle-contact">Contact Me</a>
+                                        <% end %>
+                                </div>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        </div>
+
+                                        <!-- Challenger Profile -->
+                                        <div class="column f-15">
+
+                                            <article class="media">
+                                                <div class="media-content">
+                                                    <i class="fas fa-user m-r-5"></i> Member since
+                                                </div>
+                                                <div class="media-right">
+                                                    <%= @request.user.created_at.strftime('%b %Y') %>
+                                                </div>
+                                            </article>
+                                            <article class="media">
+                                                <div class="media-content">
+                                                    <i class="fas fa-map-marker-alt m-r-5"></i> From
+                                                </div>
+                                                <div class="media-right">
+                                                    <%= @request.user.from %>
+                                                </div>
+                                            </article>
+                                            <article class="media">
+                                                <div class="media-content">
+                                                    <%= @request.user.about %>
+                                                </div>
+                                            </article>
+                                            
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                    
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="column">
+                <div class="card">
+                    <%= form_for Offer.new do |f| %>
+                      
+                        <div class="card-content">
+                            <%= f.hidden_field :request_id, value: @request.id %>
+                             <div class="field">
+                                <label for="" class="label">Club Name</label>
+                                <%= f.text_field :club, class: "input" %>
+                            </div>
+                            <div class="field">
+                                <label for="" class="label">Age Group (Under)</label>
+                                <%= f.text_field :age, class: "input" %>
+                            </div>
+                           <div class="field">
+                                <label for="" class="label">Date (Available to Play)</label>
+                                <%= f.date_field :date, class: "input" %>
+                            </div>
+                            <div class="field">
+                                <label for="" class="label">Location</label>
+                                <%= f.text_field :location, class: "input" %>
+                            </div>
+                            <div class="field">
+                                <label for="" class="label">Challenge note</label>
+                                <%= f.text_area :note, class: "textarea" %>
+                            </div>
+                            <%= f.submit 'Send Challenge', class: "button is-primary is-fullwidth" %>
+
+                        </div>
+
+                    <% end %>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<div class="modal" id="contact-form">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Send a Message</p>
+            <button class="delete toggle-contact" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="columns">
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-content is-horizontal-center is-flex">
+                            <figure class="image is-128x128">
+                                <%= image_tag avatar_url(@request.user), class: "is-rounded" %>
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <hr>
+                            <strong>Please include:</strong>
+                            <ul class="is-size-7" style="list-style:initial">
+                                <li>Any Questions you have about this fixture</li>
+                                <li>along with some details about your Team</li>
+                                <li>your time frame & location</li>
+                            </ul>
+                        </div>
+                     </div>
+                </div> 
+                  
+                
+                <div class="column">
+                    <%= form_with model: Message.new do |f| %>
+                        <%= f.hidden_field :receiver_id, value: @request.user.id %>
+                        <div class="card-content">
+                            <div class="field">
+                                <div class="control">
+                                    <%= f.text_area :content, class: "textarea" %>
+                                </div>
+                                
+                                
+                                
+                            </div>
+                            <%= f.submit "Send", class: "button is-danger is-pulled-right" %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    var toggle_modals = $('.toggle-contact');
+    if (toggle_modals) {
+        toggle_modals.on('click', function(event) {
+            event.stopPropagation();
+            event.preventDefault();
+            var form = document.getElementById('contact-form');
+            form.classList.toggle('is-active');
+        });
+    }
+</script>
+
+
+<script>
+    BulmaCarousel.attach('#carousel-photo', {
+        slidesToScroll: 1,
+        slidesToShow: 1
+    });
+
+    $(document).ready(function() {
+        $('#tabs li').on('click', function() {
+            var type = $(this).data('tab');
+
+            $('#tabs li').removeClass('is-active');
+            $(this).addClass('is-active');
+
+            $('.tab-content').hide();
+            $('#tab-' + type).show();
+        }) 
+    })
+
+</script>

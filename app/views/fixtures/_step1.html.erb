@@ -1,0 +1,11 @@
+<div class="step-content <%= 'is-active' if @step == 1 %>">
+    <div class="field">
+        <label class="label"><strong>Your Clubs Name </strong></label>
+        <%= f.text_area :title, autocomplete: "title", class: "textarea" %>
+    </div>
+    <div class="field">
+        <label class="label">Category</label>
+        <%= f.select(:category_id, options_for_select(@categories.map{ |c| [c.name, c.id] }, selected: @fixture.category_id)) %>
+    </div>
+   
+</div>

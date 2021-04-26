@@ -1,0 +1,250 @@
+<section class="section">
+    <div class="container">
+        <div class="columns">
+        
+            <!-- LEFT SIDE -->
+            <div class="column is-one-third">
+                <div class="columns is-multiline">
+
+                    <!-- Top Card -->
+                    <div class="column is-full">
+                        <div class="card">
+
+                            <!-- Avatar -->
+                            <div class="card-content is-horizontal-center is-flex">
+                                <figure class="image is-128x128">
+                                    <%= image_tag avatar_url(current_user), class: "is-rounded" %>
+                                </figure>
+                            </div>
+                            
+                            <div class="card-content">
+
+                                <!-- Upload Button -->
+                                <div class="content has-text-centered">
+                                    <p class="title is-5"><%= current_user.full_name %></p>
+                                    <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post do |f| %>
+                                        <div class="file">
+                                            <label class="button is-primary is-outlined is-fullwidth">
+                                                <%= f.file_field :avatar, class: "file-input", onchange: "this.form.submit();" %>
+                                                <i class="fas fa-upload"></i>&nbsp;&nbsp;&nbsp; Upload Avatar
+                                            </label>
+                                        </div>
+                                    <% end %>
+                                </div>
+                                <hr class="h-10">
+                                
+                                <!-- Member -->
+                                <article class="media">
+                                    <div class="media-content">Member since</div>
+                                    <div class="media-right">
+                                        <strong><%= current_user.created_at.strftime('%b %Y') %></strong>
+                                    </div>
+                                </article>
+                                <hr class="h-10">
+                                
+                                <!-- From -->
+                                <article>
+                                    <div class="media">
+                                        <div class="media-content">From</div>
+                                        <div class="media-right">
+                                            <strong><%= current_user.from %></strong> <i class="toggle far fa-edit" aria-controls="user-from"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-from', class: 'is-hidden'} do |f| %>
+                                            <div class="field">
+                                                <%= f.text_field :from, autofocus: true, autocomplete: 'form', class: 'input'%>
+                                            </div>
+                                            <a class="toggle button is-light" aria-controls="user-from">Cancel</a>
+                                            <%= f.submit "Save", class: "button is-danger" %>
+                                        <% end %>
+                                    </div>
+
+                                </article>                                
+                                <hr class="h-10">
+
+                                <!-- Online Status -->
+                                <article>
+                                    <div class="media">
+                                        <div class="media-content">Online Status</div>
+                                        <div class="media-right">
+                                            <strong><% if current_user.status %> Online <% else %> Offline <% end %></strong> <i class="toggle far fa-edit" aria-controls="user-status"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-status', class: 'is-hidden'} do |f| %>
+                                            <div class="field">
+                                                <%= f.select(:status, options_for_select([["Online", true], ["Offline", false]]), {}, {class: "select is-fullwidth"}) %>
+                                            </div>
+                                            <a class="toggle button is-light" aria-controls="user-status">Cancel</a>
+                                            <%= f.submit "Save", class: "button is-danger" %>
+                                        <% end %>
+                                    </div>
+                                </article>
+                                
+                           </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Card -->
+                    <div class="column is-full">
+                        <div class="card">
+                            <div class="card-content">
+
+                                <!-- About -->
+                                <article>
+                                    <div class="media">
+                                        <div class="media-content">
+                                            <p>
+                                                <strong>About Yourself</strong>
+                                                <br>
+                                                <%= current_user.about %>
+                                            </p>
+                                        </div>
+                                        <div class="media-right">
+                                            <i class="toggle far fa-edit" aria-controls="user-about"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-about', class: 'is-hidden'} do |f| %>
+                                            <div class="field">
+                                                <%= f.text_area :about, autofocus: true, autocomplete: 'form', class: 'input'%>
+                                            </div>
+                                            <a class="toggle button is-light" aria-controls="user-about">Cancel</a>
+                                            <%= f.submit "Save", class: "button is-danger" %>
+                                        <% end %>
+                                    </div>
+                                </article>
+                                <hr class="h-10">
+
+                                <!-- Team -->
+                                <article>
+                                    <div class="media">
+                                        <div class="media-content">
+                                            <p>
+                                                <strong>Team</strong>
+                                                <br>
+                                                <%= current_user.team %>
+                                            </p>
+                                        </div>
+                                        <div class="media-right">
+                                            <i class="toggle far fa-edit" aria-controls="user-team"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, html: {id: 'user-team', class: 'is-hidden'} do |f| %>
+                                            <div class="field">
+                                                <%= f.text_field :team, autofocus: true, autocomplete: 'form', class: 'input'%>
+                                            </div>
+                                            <a class="toggle button is-light" aria-controls="user-team">Cancel</a>
+                                            <%= f.submit "Save", class: "button is-danger" %>
+                                        <% end %>
+                                    </div>
+
+                                </article>
+                                <hr class="h-10">
+                                
+                                <!-- Linked Account -->
+                                <article class="media">
+                                    <div class="content">
+                                        <p>
+                                            <strong>Linked Account</strong><br/>
+                                            <% if current_user.provider %>
+                                                <span class="has-text-success">Facebook verified</span>
+                                            <% else %>
+                                                <%= link_to 'Connect to Facebook', user_facebook_omniauth_authorize_path, class: "has-text-danger" %>
+                                            <% end %>
+                                        </p>
+                                    </div>
+                                </article>
+                                <hr class="h-10">
+
+                                <!-- Mobile Number -->
+                               
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="column">
+                <div class="columns is-multiline">
+
+                    <!-- Create New Fixture -->
+                    <div class="column is-one-third has-text-centered">
+                        <%= link_to new_fixture_path do %>
+                            <div class="card">
+
+                                <div class="card-image card-content is-horizontal-center is-flex ">
+                                    <figure class="image is-128x128 ">
+                                        <%= image_tag 'icon_add.png' %>
+                                    </figure>
+                                </div>
+
+                                <div class="card-content">
+                                    <strong>Create a New Fixture</strong>
+                                </div>    
+
+                            </div>
+                        <% end %>
+                    </div>
+
+
+                    <!-- Sample fixture -->
+                    <% current_user.fixtures.each do |fixture| %>
+
+                        <div class="column is-one-third">
+                            <div class="card">
+
+                                <div class="card-image">
+                                    <%= link_to edit_fixture_path(fixture) do %>
+                                        <figure class="image is-4by3">
+                                            <%= image_tag fixture_cover(fixture) %>
+                                        </figure>
+                                    <% end %>
+                                </div>
+
+                                <div class="card-content p-t-5 p-b-5">
+                                    <p class="subtitle is-6 m-b-5"><%= link_to fixture.title, fixture_path(fixture) %></p>
+                                    <span class="star-review"><i class="fa fa-star"></i>
+                                        <%= fixture.average_rating %>
+                                        <span class="has-text-primary">(<%= fixture.reviews.count %>)</span>
+                                    </span>                                        
+                                </div>
+
+                                <footer class="card-footer">
+                                    <% mini_age = fixture.detailings.find{ |p| p.detailing_type == 'mini' } %>
+
+                                    <a class="has-text-danger is-block card-footer-item has-text-right">
+                                        <% if !mini_age.nil? %>
+                                            <span class="small-title">Age Group:</span> <br>
+                                            <strong>Under : <%=mini_age.age %>'s </strong>                                            
+                                        <% else %>
+                                                <span class="small-title has-text-dark">NO detail YET</span>
+                                            </strong>
+                                        <% end %>
+                                    </a>
+                                </footer>  
+                                
+                            </div>
+                        </div>
+
+                    <% end %>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+    

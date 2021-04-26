@@ -1,0 +1,104 @@
+<section class="section">
+    <div class="container">
+
+        <%= form_with model: [@fixture, @fixture.challenges.new] do |f| %>
+            <%= hidden_field_tag 'detailing_type', @detailing.detailing_type %>
+
+            <div class="columns">
+
+                <!-- LEFT SIDE -->
+                <div class="column is-two-thirds">
+                    <div class="columns is-multiline">
+                        <div class="column is-full">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="content">
+                                        <p class="title is-5">Payment options</p>
+                                    </div>
+                                    <hr>
+                                    <div class="content">
+                                        
+                                                </span>
+                                            </div>
+                                        <% end %>
+                                        <div class="control m-t-20">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- RIGHT SIDE -->
+                <div class="column">
+                    <div class="columns is-multiline">
+                        <div class="column is-full">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="content">
+                                        <p class="title is-5">Summary</p>
+                                    </div>
+                                    <hr>
+                                    <article class="media">
+                                        <div class="media-content">
+                                            <figure class="image is-4by3">
+                                                <%= image_tag fixture_cover(@fixture) %>
+                                            </figure>
+                                        </div>
+                                        <div class="media-right">
+                                            <strong><%= @fixture.title %> </strong>
+                                        </div>
+                                    </article>
+
+                                    <article class="media">
+                                        <div class="media-content">
+                                            Subtotal
+                                        </div>
+                                        <div class="media-right">
+                                            
+                                        </div>
+                                    </article>
+
+                                    <article class="media">
+                                        <div class="media-content">
+                                            
+                                        </div>
+                                        <div class="media-right">
+                                            
+                                        </div>
+                                    </article>
+
+                                    <article class="media">
+                                        <div class="media-content">
+                                            Total
+                                        </div>
+                                        <div class="media-right">
+                                          
+                                        </div>
+                                    </article>
+
+                                    <article class="media">
+                                        <div class="media-content">
+                                            Total delivery time
+                                        </div>
+                                        <div class="media-right">
+                                            <%= pluralize(@detailing.match_time, 'day') %>
+                                        </div>
+                                    </article>
+                                    
+                                    <%= f.submit "Place Your Challenge", class: "button is-fullwidth is-danger", data: {confirm: "Are you sure?"} %>
+
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</section>
